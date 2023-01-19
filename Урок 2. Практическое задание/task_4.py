@@ -14,3 +14,8 @@
 1. раз
 2. перерефриж
 """
+input_list = input("Введите целые числа через пробел: ").split(" ")
+i = 1
+for item in input_list:
+    print(f"{i}. {item[:10]}")
+    i += 1
