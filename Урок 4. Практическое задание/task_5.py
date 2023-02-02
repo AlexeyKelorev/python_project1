@@ -5,3 +5,8 @@
 Необходимо получить результат вычисления произведения всех элементов списка.
 Подсказка: использовать лямбда-функцию и функцию reduce().
 """
+
+from functools import reduce
+list_gen = (item for item in range(100, 1000) if item % 2 == 0)
+result = reduce((lambda x, y: x * y), list_gen)
+print(result)
