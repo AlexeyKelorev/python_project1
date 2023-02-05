@@ -27,5 +27,7 @@ if incomes > expenses:
     print(f"Рентабельность выручки = {profitability}")
     amount_of_workers = int(input("Введите количество работников: "))
     print(f"Прибыль на одного сотрудника - {profitability/amount_of_workers}")
+elif incomes == expenses:
+    print(f"Финансовый результат - остались при своих!")
 else:
     print(f"Финансовый результат - убыток. Его величина: {expenses-incomes}.")
