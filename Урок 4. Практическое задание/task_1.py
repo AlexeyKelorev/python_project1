@@ -6,3 +6,9 @@
 Для выполнения расчета для конкретных значений
 необходимо запускать скрипт с параметрами.
 """
+
+from sys import argv
+
+payroll, time_work, rating, bonus = argv
+salary = int(time_work)*int(rating)+int(bonus)
+print(f"Заработная плата с учетом премии составляет: {salary}")
