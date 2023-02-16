@@ -15,3 +15,34 @@
 
 Проверить работу примера, создав экземпляр и вызвав описанный метод.
 """
+from time import sleep
+
+
+class TrafficLight:
+    __color = ['Красный', 'Желтый', 'Зеленый']
+
+    def running(self):
+        i = 0
+        while i < 3:
+            print(f'{TrafficLight.__color[i]}')
+            if i == 0:
+                for j in range(6):
+                    print(6-j, end='')
+                    sleep(1)
+                    print('\r', end='')
+            elif i == 1:
+                for j in range(2):
+                    print(2 - j, end='')
+                    sleep(1)
+                    print('\r', end='')
+            elif i == 2:
+                for j in range(6):
+                    print(6-j, end='')
+                    sleep(1)
+                    print('\r', end='')
+            print("\r", end="")
+            i += 1
+
+
+TrafficLight = TrafficLight()
+TrafficLight.running()
