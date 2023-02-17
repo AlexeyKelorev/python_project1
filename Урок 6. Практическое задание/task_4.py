@@ -20,3 +20,79 @@ speed, color, name, is_police (булево).
 Выполните доступ к атрибутам, выведите результат.
 Выполните вызов методов и также покажите результат.
 """
+
+
+class Car:
+    def __init__(self, speed, color, name, is_police):
+        self.speed = speed
+        self.color = color
+        self.name = name
+        self.is_police = is_police
+
+    def go(self):
+        return f'{self.name} движется'
+
+    def stop(self):
+        return f'{self.name} стоит'
+
+    def turn_right(self):
+        return f'{self.name} поворачивает направо'
+
+    def turn_left(self):
+        return f'{self.name} поворачивает налево'
+
+    def show_speed(self):
+        return f'Скорость {self.name} {self.speed}'
+
+
+class TownCar(Car):
+    def __init__(self, speed, color, name, is_police):
+        super().__init__(speed, color, name, is_police)
+
+    def show_speed(self):
+        if self.speed > 60:
+            return f'Скорость {self.name} - {self.speed}. Превышение'
+        else:
+            return f'Скорость {self.name} - {self.speed}.'
+
+
+class SportCar(Car):
+    def __init__(self, speed, color, name, is_police):
+        super().__init__(speed, color, name, is_police)
+
+
+class WorkCar(Car):
+    def __init__(self, speed, color, name, is_police):
+        super().__init__(speed, color, name, is_police)
+
+    def show_speed(self):
+        if self.speed > 40:
+            return f'Скорость {self.name} - {self.speed}. Превышение!!!'
+        else:
+            return f'Скорость {self.name} - {self.speed}.'
+
+
+class PoliceCar(Car):
+    def __init__(self, speed, color, name, is_police):
+        super().__init__(speed, color, name, is_police)
+
+    def police(self):
+        if self.is_police:
+            return f'{self.name} машина полиции'
+        else:
+            return f'{self.name} гражданский автомобиль'
+
+
+porshe = SportCar(100, 'черный', 'Porshe', False)
+solaris = TownCar(30, 'серебристый', 'Solaris', False)
+largus = WorkCar(70, '<белый>', 'Largus', False)
+ford = PoliceCar(110, 'белый', 'Ford', True)
+
+print(porshe.turn_left())
+print(f'{largus.turn_right()}, {solaris.stop()}')
+print(f'{ford.go()}. {ford.show_speed()}')
+print(f'{porshe.name} {porshe.color}')
+print(solaris.show_speed())
+print(largus.show_speed())
+print(ford.police())
+print(ford.show_speed())

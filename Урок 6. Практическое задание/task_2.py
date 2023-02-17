@@ -16,3 +16,21 @@ length (длина в метрах), width (ширина в метрах).
 
 Например: 20м*5000м*25кг*0.05м = 125000 кг = 125 т
 """
+
+weigth = 25
+tickness = 0.05
+
+
+class Road:
+
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    def consumption(self):
+        consumption = self.length * self.width * weigth * tickness / 1000
+        print(consumption)
+
+
+road_ready = Road(5000, 20)
+road_ready.consumption()
