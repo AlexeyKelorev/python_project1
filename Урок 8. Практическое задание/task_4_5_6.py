@@ -19,3 +19,46 @@
 Подсказка: постарайтесь по возможности реализовать в проекте
 «Склад оргтехники» максимум возможностей, изученных на уроках по ООП.
 """
+
+class Stock:
+
+    def __init__(self, type_mashine, model, quantity):
+        self.type_mashine = type_mashine
+        self.model = model
+        self.quantity = quantity
+        self.my_units = {'Единица товара: ': self.type_mashine, 'Модель': self.model, 'Количество': self.quantity}
+
+    def admission(self, type_mashine, model, quantity):
+        self.type_mashine = type_mashine
+        self.model = model
+        self.quantity = int(quantity)
+        
+
+
+
+class Mashines:
+    def __init__(self, model, serial):
+        self.model = model
+        self.serial = serial
+
+class Printer:
+    def __init__(self, model, serial, speed):
+        self.model = model
+        self.serial = serial
+        self.speed = speed
+
+class Scaner:
+    def __init__(self, model, serial, resolution):
+        self.model = model
+        self.serial = serial
+        self.resolution = resolution
+
+class Copyer:
+    def __init__(self, model, serial, paper_size):
+        self.model = model
+        self.serial = serial
+        self.paper_size = paper_size
+
+
+
+
