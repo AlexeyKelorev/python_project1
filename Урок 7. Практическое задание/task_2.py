@@ -25,3 +25,44 @@
 
 Два класса: абстрактный и Clothes
 """
+
+
+from abc import abstractmethod
+
+
+class AbstractClothes:
+    @abstractmethod
+    def total_material(self):
+        pass
+
+    def count_coat_material(self):
+        pass
+
+    def count_suit_material(self):
+        pass
+
+
+class Clothes(AbstractClothes):
+    def __init__(self, v, h):
+        self.v = v
+        self.h = h
+        self.coat_material = self.v / 6.5 + 0.5
+        self.suit_material = 2 + self.h + 0.3
+
+    @property
+    def count_coat_material(self):
+        return self.coat_material
+
+    @property
+    def count_suit_material(self):
+        return self.suit_material
+
+    @property
+    def total_material(self):
+        return self.coat_material + self.suit_material
+
+
+order = Clothes(4, 5)
+print(f"Расход ткани на пальто = {order.count_coat_material} ")
+print(f"Расход ткани на костюм = {order.count_suit_material} ")
+print(f"Общий расход ткани = {order.total_material} ")

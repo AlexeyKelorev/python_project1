@@ -100,3 +100,50 @@ print(cell2.make_order(10))
 *****\n *****\n *****\n *****\n *****\n *****\n
 **********\n **********\n *****
 """
+
+
+class Cell:
+    def __init__(self, quantity):
+        self.quantity = int(quantity)
+
+    def __str__(self):
+        return str(f'ячеек - {self.quantity}')
+
+    def __add__(self, other):
+        return Cell(abs(self.quantity + other.quantity))
+
+    def __sub__(self, other):
+        return Cell(abs(self.quantity - other.quantity))
+
+    def __mul__(self, other):
+        return Cell(self.quantity * other.quantity)
+
+    def __truediv__(self, other):
+        return Cell(self.quantity // other.quantity)
+
+    def make_order(self, count):
+        x = self.quantity
+        while x > 0:
+            for k in range(1, count+1):
+                print('*', end='')
+                x -= 1
+                if x <= 0:
+                    break
+            print('\n', end='')
+
+
+c1 = Cell(5)
+c2 = Cell(10)
+c3 = Cell(3)
+c4 = Cell(2)
+
+print(f"Сумма {c1 + c2}")
+print(f"Разность {c2 - c1}")
+print(f"Произведение {c3 * c4}")
+print(f"Деление {c2 / c3}")
+print()
+print("Организация ячеек по рядам")
+
+c2.make_order(3)
+print()
+c3.make_order(2)
